@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('training');
             $table->string('weighy');
+            $table->foreignId('profile_id')->constrained('profiles')->onDelete('cascade');
             $table->date('date');
             $table->timestamps();
         });

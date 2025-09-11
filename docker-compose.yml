@@ -25,7 +25,7 @@ services:
 
   web:
     image: nginx:latest
-    container_name: laravelAP_web
+    container_name: laravelAcadP_web
     ports:
       - "1010:80"
     volumes:
@@ -56,7 +56,7 @@ services:
 
   redis:
     image: redis:latest
-    container_name: laravelAP_redis
+    container_name: laravelAcadP_redis
     networks:
       - laravel_network
 
