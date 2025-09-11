@@ -21,12 +21,14 @@
                 <a href="{{ route('create') }}" class='navbar-brand'>Cadastrar Treino</a>
             </li>
         @endauth
+        @guest
             <li>
                 <a href="{{ route('loginForm') }}" class="navbar-brand">Login</a>
             </li>
             <li>
                 <a href="{{ route('viewForm') }}" class="navbar-brand">Criar usuário </a>
             </li>
+        @endguest
        </ul> 
     </div>
 </nav>

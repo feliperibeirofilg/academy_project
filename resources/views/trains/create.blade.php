@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
-
+    @auth
     <h1>Cadastrar Treino:</h1>
 
-    <form action="{{ route('create') }}" method="post">
+    <form action="{{ route('trains.store') }}" method="post">
         @csrf
         <div class="mb-3">
             <label for="training" class="form-label">
@@ -24,8 +24,12 @@
         </div>
 
         <div class="mb-3">
-            <input type="button" value="Cadastrar Treino">
+            <input type="submit" class="btn btn-primary" value="Cadastrar Treino">
         </div>
     </form>
-    
-@endsection
+    @endauth
+    @guest
+        <h2>Você não estã logado</h2>
+        <a href="{{ route('loginForm')}}">Clique aqui para logar.</a>
+    @endguest
+    @endsection
