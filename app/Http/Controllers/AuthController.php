@@ -25,7 +25,7 @@ class AuthController extends Controller
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
 
-            return redirect()->intended(route('trains.create'))
+            return redirect()->intended(route('trainings.create'))
             ->with('success', 'Bem-vindo(a) de volta');
         }
         

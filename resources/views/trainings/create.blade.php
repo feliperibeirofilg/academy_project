@@ -3,7 +3,7 @@
     @auth
     <h1>Cadastrar Treino:</h1>
 
-    <form action="{{ route('trains.store') }}" method="post">
+    <form action="{{ route('trainings.store') }}" method="post">
         @csrf
         <div class="mb-3">
             <label for="training" class="form-label">

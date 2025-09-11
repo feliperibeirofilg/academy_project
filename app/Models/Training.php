@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class train extends Model
+class Training extends Model
 {
     protected $fillable = [
         'training',

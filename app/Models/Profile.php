@@ -5,7 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Training;
 
 class Profile extends Authenticatable
 {
@@ -21,7 +23,7 @@ class Profile extends Authenticatable
         'password',
     ];
 
-    public function trains():HasMany{
-        return $this->hasMany(Train::class);
+    public function trainings():HasMany{
+        return $this->hasMany(Training::class);
     }
 }

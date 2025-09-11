@@ -16,9 +16,9 @@
     <div class="navbar-collapse collapse navbar-nav">
         @auth
         <ul class="navbar-nav me-auto">
-            <a href="{{ route('loginForm') }}" class='navbar-brand'>Lista de treino</a>
+            <a href="{{ route('trainings.index') }}" class='navbar-brand'>Lista de treino</a>
             <li class="nav-item">
-                <a href="{{ route('create') }}" class='navbar-brand'>Cadastrar Treino</a>
+                <a href="{{ route('trainings.create') }}" class='navbar-brand'>Cadastrar Treino</a>
             </li>
         @endauth
         @guest
