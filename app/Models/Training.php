@@ -8,11 +8,15 @@ class Training extends Model
 {
     protected $fillable = [
         'training',
-        'weighy',
-        'date',
     ];
 
     public function profile():BelongsTo{
         return $this->belongTo(Profile::class);
+    }
+
+    public function exercise():belongsToMany{
+        return->$this->belongsToMany(Exercise::class, 'exercise_training')
+        ->withPivot('series', 'repetitions', 'weight')
+        ->withTimestamps();
     }
 }

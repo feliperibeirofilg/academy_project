@@ -18,8 +18,6 @@ class TrainingController extends Controller
     public function store(Request $request, Profile $profile){
         $validateData = $request->validate([
             'training' => 'required|string|max:255',
-            'weighy' => 'required|string|max:20',
-            'date' => 'required|date'
         ]);
 
         $profile = Auth::user();
