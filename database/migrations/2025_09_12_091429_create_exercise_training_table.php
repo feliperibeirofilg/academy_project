@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('exercise_training', function (Blueprint $table) {
             $table->id();
-            $table->foreingId('training_id');
-            $table->fireingId('exercicio_id');
+            $table->foreignId('training_id')->constrained()->onDelete('cascade');
+            $table->foreignId('exercise_id')->constrained()->onDelete('cascade');
             $table->string('series');
             $table->string('repetitions');
-            $table->decimal('weight', 2,1);
+            $table->string('weight', 2,1);
             $table->date('date');
             $table->timestamps();
         });

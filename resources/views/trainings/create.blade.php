@@ -6,30 +6,24 @@
     <form action="{{ route('trainings.store') }}" method="post">
         @csrf
         <div class="mb-3">
-            <label for="training" class="form-label">
-                <input type="text" name="training" id="training" placeholder="Nome do exercicio">
+            <select name="training" required='required' class="form-select">
+                <option value="">Selecione um grupo muscular</option>
+                <option value="Ombro">Ombro</option>
+                <option value="Biceps">Biceps</option>
+                <option value="Triceps">Triceps</option>
+                <option value="Costas">Costas</option>
+                <option value="Quadriceps">Quadriceps</option>
+                <option value="Posterior">Posterior</option>
             </label>
         </div>
 
-        <div class="mb-3">
-            <label for="weighy" class="form-label">
-                <input type="text" name="weighy" id="weighy" placeholder="Peso:">
-            </label>
-        </div>
-
-        <div class="mb-3">
-            <label for="date" class="form-label">
-                <input type="date" name="date" id="date" placeholder="Data:">
-            </label>
-        </div>
-
-        <div class="mb-3">
-            <input type="submit" class="btn btn-primary" value="Cadastrar Treino">
+        <div>
+           <input type="submit" class="btn btn-primary" value="Criar treino">
         </div>
     </form>
     @endauth
     @guest
-        <h2>Você não estã logado</h2>
-        <a href="{{ route('loginForm')}}">Clique aqui para logar.</a>
+        <h2>Você não está logado</h2>
+        <a href="{{ route('loginForm') }}">Clique aqui para logar.</a>
     @endguest
     @endsection

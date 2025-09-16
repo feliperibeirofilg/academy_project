@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Profile;
-use App\Http\Models\Train;
+use App\Models\Train;
 use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
@@ -27,7 +27,7 @@ class ProfileController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return view('users.create');
+        return view('auth.login');
     }
 
     

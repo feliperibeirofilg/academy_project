@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Training extends Model
 {
@@ -14,9 +15,9 @@ class Training extends Model
         return $this->belongTo(Profile::class);
     }
 
-    public function exercise():belongsToMany{
-        return->$this->belongsToMany(Exercise::class, 'exercise_training')
-        ->withPivot('series', 'repetitions', 'weight')
+    public function exercises():belongsToMany{
+        return $this->belongsToMany(Exercise::class, 'exercise_training')
+        ->withPivot('series', 'repetitions', 'weight', 'date')
         ->withTimestamps();
     }
 }
