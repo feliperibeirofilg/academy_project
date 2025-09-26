@@ -57,4 +57,12 @@ class ExerciseController extends Controller
         return view('exercise.index', ['exercises' => $exercises]);
     }
 
+    public function index(){
+
+        $profile = Auth::user();
+        $trainings = $profile->trainings()with('exercises')->get();
+
+        return view ('trainings.show', ['trainings' => $trainings]);
+    }
+
 }

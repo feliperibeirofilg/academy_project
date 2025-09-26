@@ -4,7 +4,7 @@
 
 <ul>
     @forelse ($exercises as $exercise)
-        <li>{{ $exercise->exercise_name }}</li>
+        <li>{{ $exercise->exercise_name }} teste</li>
     @empty
         <li>Nenhum exercício cadastrado.</li>
     @endforelse

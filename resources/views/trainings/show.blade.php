@@ -6,7 +6,9 @@
         <div class="card-body">
             <h5 class="card-title">{{ $training->training }}</h5>
             <p class="card-text">
+            
                 <strong>Data do ultimo treino:</strong> {{ \Carbon\Carbon::parse($training->date)->format('d/m/Y')}}<br>
+            
             </p>
         </div>
     </div>
