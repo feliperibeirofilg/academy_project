@@ -29,7 +29,7 @@
     </form>
     @endauth
     @guest
-        <h2>Você não estã logado</h2>
+        <h2>Você não esta logado</h2>
         <a href="{{ route('loginForm')}}">Clique aqui para logar.</a>
     @endguest
     @endsection
