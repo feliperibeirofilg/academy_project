@@ -1,18 +1,34 @@
 @extends('layouts.app')
 @section('content')
 
-    @forelse ($allTrainings as $training)
-    <div class="card mb-3">
-        <div class="card-body">
-            <h5 class="card-title">{{ $training->training }}</h5>
-            <p class="card-text">
-            
-                <strong>Data do ultimo treino:</strong> {{ \Carbon\Carbon::parse($training->date)->format('d/m/Y')}}<br>
-            
-            </p>
-        </div>
-    </div>
+    <h1>
+    Treino de {{ $training->training }} 
+    @if ($training->date)
+        ({{ $training->date->format('d/m/Y') }})
+    @endif
+    </h1>
+    <hr>
+    <h3>Adicionar Exercício</h3>
+
+    <form action="{{ route('exercise.store', $training->id) }}" method="post">
+        @csrf
+        <input type="text" name="exercise_name" placeholder="Nome do Exercício">
+        <input type="number" name="series" placeholder="Séries">
+        <input type="number" name="repetitions" placeholder="Repetições">
+        <input type="text" name="weight" placeholder="Peso (kg)">
+        <input type="date" name="date" placeholder="Data do exercicio">
+        <button type="submit">Adicionar</button>
+    </form>
+
+    <hr>
+    <h3>Exercícios do Treino</h3>
+    @forelse ($training->exercises as $exercise)
+        <p>
+            <strong>{{ $exercise->exercise_name }}</strong>: 
+            {{ $exercise->pivot->series }}x{{ $exercise->pivot->repetitions }} com {{ $exercise->pivot->weight }}kg
+        </p>
     @empty
+        <p>Nenhum exercício adicionado a este treino ainda.</p>
     <div class="alert alert-info">
         <p>Você ainda não cadastrou nenhum treino.</p>
     </div>

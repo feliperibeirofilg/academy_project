@@ -21,6 +21,7 @@
            <input type="submit" class="btn btn-primary" value="Criar treino">
         </div>
     </form>
+    
     @endauth
     @guest
         <h2>Você não está logado</h2>

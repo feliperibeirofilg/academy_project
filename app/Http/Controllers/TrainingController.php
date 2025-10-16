@@ -29,14 +29,21 @@ class TrainingController extends Controller
         $validateData = $request->validate([
             'training' => [
                 'required',
-                Rule::in($allowedTrainings)]
+                Rule::in($allowedTrainings)],
+            'date' => 'required|date'
         ]);
 
         $profile = Auth::user();
 
         $profile->trainings()->create($validateData);
 
-        return redirect()->route('exercise.store')->with('success', 'Treino adicionado');
+        return redirect()->route('trainings.index', $training->id)
+                        ->with('success', 'Treino iniciado! Agora adicione os exercícios.');
+    }
+    public function show(Training $training)
+    {
+        
+        return view('trainings.show', ['training' => $training]);
     }
 
     public function index(){
@@ -44,6 +51,6 @@ class TrainingController extends Controller
         $profile = Auth::user();
         $userTrainings = $profile->trainings()->latest()->get();
 
-        return view ('trainings.show', ['allTrainings' => $userTrainings]);
+        return view ('trainings.index', ['trainings' => $userTrainings]);
     }
 }

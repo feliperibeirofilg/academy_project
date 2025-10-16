@@ -17,6 +17,7 @@ Route::post('/auth/login', [AuthController::class, 'login'])->name('login');
 //Route::post('/auth')
 
 Route::resource('/exercise', ExerciseController::class);
-Route::post('/trainings/{training}/exercises', [ExerciseController::class, 'store'])->name('exercises.store');
+Route::resource('/traininfs', ExerciseController::class);
+Route::post('/trainings/{training}/exercise', [ExerciseController::class, 'store'])->name('exercise.store');
 
-Route::get('/exercises/{exercise}', [ExerciseController::class, 'show'])->name('exercises.show');
+Route::get('/exercise/{exercise}', [ExerciseController::class, 'show'])->name('exercise.show');
