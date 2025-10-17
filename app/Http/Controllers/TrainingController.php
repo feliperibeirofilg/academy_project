@@ -34,16 +34,15 @@ class TrainingController extends Controller
 
         $profile = Auth::user();
 
-        $profile->trainings()->create($validateData);
+        $training = $profile->trainings()->create($validateData);
 
-        return redirect()->route('exercise.store')->with('success', 'Treino adicionado');
-    }
+        return redirect()->route('exercise.show', $training->id)
+                     ->with('success', 'Treino adicionado com sucesso!');    }
 
     public function index(){
 
         $profile = Auth::user();
         $userTrainings = $profile->trainings()->latest()->get();
 
-        return view ('trainings.show', ['allTrainings' => $userTrainings]);
-    }
+        return view('trainings.index', ['trainings' => $userTrainings]);    }
 }
