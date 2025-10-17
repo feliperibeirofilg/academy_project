@@ -17,6 +17,10 @@ class TrainingController extends Controller
         return view('trainings.create');
     }
 
+    public function show($id){
+        return route('exercise.show');
+    }
+
     public function store(Request $request, Profile $profile){
         $allowedTrainings = [
             'Peito',
@@ -36,7 +40,7 @@ class TrainingController extends Controller
 
         $training = $profile->trainings()->create($validateData);
 
-        return redirect()->route('exercise.show', $training->id)
+        return redirect()->route('training.show', $training->id)
                      ->with('success', 'Treino adicionado com sucesso!');    }
 
     public function index(){
