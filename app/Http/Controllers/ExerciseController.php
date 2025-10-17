@@ -24,9 +24,8 @@ class ExerciseController extends Controller
         'repetitions'   => 'required|string',
         'weight'        => 'required|string',
         'date'          => 'required|date',
+        
         ]);
-
-        dd($validatedData);
 
         $exercise = Exercise::firstOrCreate(
             ['exercise_name' => $validatedData['exercise_name']]
@@ -36,11 +35,12 @@ class ExerciseController extends Controller
             'series' => $validatedData['series'],
             'repetitions' => $validatedData['repetitions'],
             'weight' => $validatedData['weight'],
-            'date' => $validatedData['date'],
+            'date'        => $training->date,
+            
         ]);
         
-        return redirect()->route('exercise.show', $training->id)
-                         ->with('success', 'Treino adicionado');
+        return redirect()->route('trainings.show', $training->id)
+                         ->with('success', 'Exercicio adicionado');
     }
 
     public function show(Exercise $exercise){
@@ -48,21 +48,12 @@ class ExerciseController extends Controller
         return view ('exercise.show', ['exercise => $exercise']);
     }
 
-     public function index()
-    {
-        // 1. Busca todos os exercícios do banco de dados
-        $exercises = Exercise::all();
-
-        // 2. Retorna a view e passa a lista de exercícios para ela
-        return view('exercise.index', ['exercises' => $exercises]);
-    }
-
     public function index(){
 
         $profile = Auth::user();
-        $trainings = $profile->trainings()with('exercises')->get();
+        $trainings = $profile->trainings()->with('exercises')->get();
 
-        return view ('trainings.show', ['trainings' => $trainings]);
+        return view ('trainings.show', ['allTrainings' => $trainings]);
     }
 
 }

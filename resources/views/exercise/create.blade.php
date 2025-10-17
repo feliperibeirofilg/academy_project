@@ -32,7 +32,7 @@
             </div>
             <div>
            <input type="submit" class="btn btn-primary" value="Criar exercício.">
-        </div>
+            </div>
         </form>
     </div>
     @endauth
