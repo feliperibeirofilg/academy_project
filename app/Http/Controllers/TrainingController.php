@@ -41,7 +41,7 @@ class TrainingController extends Controller
         $training = $profile->trainings()->create($validateData);
 
         return redirect()->route('training.show', $training->id)
-                     ->with('success', 'Treino adicionado com sucesso!');    }
+                     ->with('success', 'Treino adicionado com !');    }
 
     public function index(){
 
