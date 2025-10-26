@@ -28,7 +28,7 @@
         @endauth
         @guest
             <li>
-                <a href="{{ route('loginForm') }}" class="navbar-brand">Cad</a>
+                <a href="{{ route('loginForm') }}" class="navbar-brand">Login</a>
             </li>
             <li>
                 <a href="{{ route('viewForm') }}" class="navbar-brand">Criar usuário </a>
