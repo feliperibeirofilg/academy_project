@@ -26,7 +26,12 @@
     
     @endauth
     @guest
+<<<<<<< HEAD
         <h2>Você não está logado</h2>
         <a href="{{ route('loginForm') }}">Clique aqui para logar.</a>
+=======
+        <h2>Você não esta logado</h2>
+        <a href="{{ route('loginForm')}}">Clique aqui para logar.</a>
+>>>>>>> main
     @endguest
     @endsection

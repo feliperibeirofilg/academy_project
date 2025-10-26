@@ -12,7 +12,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{ $training->name }}</h5>
                 <p class="card-text">
-                    Data: {{ $training->date}}
+                    Data: {{ \Carbon\Carbon::parse($training->date)->format('d/m/y')}}
                 </p>
                 
                

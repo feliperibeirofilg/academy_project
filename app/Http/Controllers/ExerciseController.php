@@ -49,6 +49,7 @@ class ExerciseController extends Controller
 
         $profile = Auth::user();
         $trainings = $profile->trainings()->with('exercises')->get();
+        $lastweight = $profile::findLast('weight');
 
         return view ('trainings.show', ['allTrainings' => $trainings]);
     }
