@@ -10,7 +10,7 @@
     @forelse ($trainings as $training)
         <div class="card mb-3">
             <div class="card-body">
-                <h5 class="card-title">{{ $training->training }}</h5>
+                <h5 class="card-title">{{ $training->name }}</h5>
                 <p class="card-text">
                     Data: {{ $training->date}}
                 </p>

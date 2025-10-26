@@ -7,11 +7,11 @@
         <div class="card">
             <div class="card-header">
                 {{-- Dados da tabela 'exercises' --}}
-                <h2>{{ $exercise->exercise_name }}</h2>
+                <h2>{{ $exercise->name }}</h2>
             </div>
             <div class="card-body">
                 @if ($exercise->pivot)
-                    {{-- Dados da tabela pivot 'exercise_training' --}}
+                    {{-- Dados da tabela pivot 'name' --}}
                     <p><strong>Séries:</strong> {{ $exercise->pivot->series }}</p>
                     <p><strong>Repetições:</strong> {{ $exercise->pivot->repetitions }}</p>
                     <p><strong>Peso:</strong> {{ $exercise->pivot->weight }} kg</p>

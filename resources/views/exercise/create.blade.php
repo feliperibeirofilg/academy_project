@@ -6,8 +6,8 @@
         <form action="{{ route('exercise.store') }}" method="post">
             @csrf
             <div>
-                <label for="exercise_name">
-                    <input type="text" placeholder="Nome do exercicio:">
+                <label for="name">
+                    <input type="text" id="name" name="name" placeholder="Nome do exercicio:">
                 </label>
             </div>
             <div>
@@ -23,11 +23,6 @@
             <div>
                 <label for="weight">
                     <input type="text" id="weight" name="weight" placeholder="Peso:">
-                </label>
-            </div>
-            <div>
-                <label for="date">
-                    <input type="date" id="date" name="date" placeholder="Data:">
                 </label>
             </div>
             <div>

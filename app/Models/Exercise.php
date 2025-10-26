@@ -7,11 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Exercise extends Model
 {
     protected $fillable = [
-        'exercise_name',
+        'name',
     ];
 
     public function training(){
-        return $this->belongsToMany(Training::class, 'exercise_training');
+        return $this->belongsToMany(Training::class, 'name')
+        ->withPivot('series', 'repetitions', 'weight')
+                ->withTimestamps();;
     }
 
     

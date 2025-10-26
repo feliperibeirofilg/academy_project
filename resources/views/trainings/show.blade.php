@@ -2,7 +2,7 @@
 @section('content')
 
     <h1>
-    Treino de {{ $training->training }} 
+    Treino de {{ $training->name }} 
     @if ($training->date)
         ({{ $training->date->format('d/m/Y') }})
     @endif
@@ -12,11 +12,11 @@
 
     <form action="{{ route('exercise.store', $training->id) }}" method="post">
         @csrf
-        <input type="text" name="exercise_name" placeholder="Nome do Exercício">
+        <input type="text" name="name" placeholder="Nome do Exercício">
         <input type="number" name="series" placeholder="Séries">
         <input type="number" name="repetitions" placeholder="Repetições">
         <input type="text" name="weight" placeholder="Peso (kg)">
-        <input type="date" name="date" placeholder="Data do exercicio">
+
         <button type="submit">Adicionar</button>
     </form>
 

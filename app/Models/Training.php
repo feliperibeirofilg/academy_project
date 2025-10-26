@@ -8,7 +8,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Training extends Model
 {
     protected $fillable = [
-        'training',
+        'name',
+        'date',
+        'profile_id',
+    ];
+
+    protected $casts = [
+        'date' => 'date', // Converte a coluna 'date' para um objeto Carbon
     ];
 
     public function profile():BelongsTo{
@@ -17,7 +23,7 @@ class Training extends Model
 
     public function exercises():belongsToMany{
         return $this->belongsToMany(Exercise::class, 'exercise_training')
-        ->withPivot('series', 'repetitions', 'weight', 'date')
+        ->withPivot('series', 'repetitions', 'weight')
         ->withTimestamps();
     }
 }

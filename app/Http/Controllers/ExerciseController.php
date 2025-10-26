@@ -19,24 +19,21 @@ class ExerciseController extends Controller
     public function store(Request $request, Training $training){
 
         $validatedData = $request->validate([
-        'exercise_name' => 'required|string|max:255',
+        'name' => 'required|string|max:255',
         'series'        => 'required|string',
         'repetitions'   => 'required|string',
         'weight'        => 'required|string',
-        'date'          => 'required|date',
         
         ]);
 
         $exercise = Exercise::firstOrCreate(
-            ['exercise_name' => $validatedData['exercise_name']]
+            ['name' => $validatedData['name']]
         );
         
         $training->exercises()->attach($exercise->id, [
             'series' => $validatedData['series'],
             'repetitions' => $validatedData['repetitions'],
-            'weight' => $validatedData['weight'],
-            'date'        => $training->date,
-            
+            'weight' => $validatedData['weight'], 
         ]);
         
         return redirect()->route('trainings.show', $training->id)
