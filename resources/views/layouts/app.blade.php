@@ -16,14 +16,19 @@
     <div class="navbar-collapse collapse navbar-nav">
         @auth
         <ul class="navbar-nav me-auto">
-            <a href="{{ route('trainings.index') }}" class='navbar-brand'>Lista de treino</a>
+            <li class="nav-item">
+                <a href="/" class='navbar-brand'>Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('trainings.index') }}" class='navbar-brand'>Lista de treino</a>
+            </li>
             <li class="nav-item">
                 <a href="{{ route('trainings.create') }}" class='navbar-brand'>Cadastrar Treino</a>
             </li>
         @endauth
         @guest
             <li>
-                <a href="{{ route('loginForm') }}" class="navbar-brand">Login</a>
+                <a href="{{ route('loginForm') }}" class="navbar-brand">Cad</a>
             </li>
             <li>
                 <a href="{{ route('viewForm') }}" class="navbar-brand">Criar usuário </a>

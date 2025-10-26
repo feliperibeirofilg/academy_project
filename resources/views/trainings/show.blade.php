@@ -24,7 +24,7 @@
     <h3>Exercícios do Treino</h3>
     @forelse ($training->exercises as $exercise)
         <p>
-            <strong>{{ $exercise->exercise_name }}</strong>: 
+            <strong>{{ $exercise->name }}</strong>: 
             {{ $exercise->pivot->series }}x{{ $exercise->pivot->repetitions }} com {{ $exercise->pivot->weight }}kg
         </p>
     @empty

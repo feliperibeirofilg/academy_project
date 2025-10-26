@@ -6,6 +6,8 @@ use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\ExerciseController;
 use App\Http\Controllers\AuthController;
 
+Route::view('/', 'index');
+
 Route::get('/users/create', [ProfileController::class, 'create'])->name('viewForm');
 Route::post('/users/create', [ProfileController::class, 'store'])->name('create');
 
