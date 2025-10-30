@@ -25,18 +25,30 @@
             <li class="nav-item">
                 <a href="{{ route('trainings.create') }}" class='navbar-brand'>Cadastrar Treino</a>
             </li>
+
+        
         @endauth
         @guest
             <li>
-                <a href="{{ route('loginForm') }}" class="navbar-brand">Login</a>
+                <a href="{{ route('login') }}" class="navbar-brand">Login</a>
             </li>
             <li>
                 <a href="{{ route('viewForm') }}" class="navbar-brand">Criar usuário </a>
             </li>
         @endguest
        </ul> 
+        
+       @auth
+       <form action="{{route('logout')}}" method="POST" class="d-flex ms-auto">
+            @csrf
+            <button type="submit" class="btn btn-danger">
+                Sair
+            </button>
+        </form>
+        @endauth
     </div>
 </nav>
+
     <div class="container mt-5">
         @yield('content')
     </div>
