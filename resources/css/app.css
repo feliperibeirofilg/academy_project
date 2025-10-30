@@ -9,3 +9,138 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+
+/* Ajuste para o corpo da página */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif; /* Uma fonte mais moderna */
+    background-color: #f0f2f5; /* Cor de fundo padrão */
+    color: #333;
+}
+
+/* Estilo para o container da página de login */
+.login-page-bg {
+    /* Define sua imagem de fundo */
+    background-image: url('/storage/img/academia-bg.jpg'); /* Crie esta imagem ou use uma URL */
+    background-size: cover; /* Cobre todo o espaço */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Não repete a imagem */
+    background-attachment: fixed; /* Efeito parallax ao rolar */
+    /* Para a animação, você precisaria de uma imagem MUITO grande ou várias */
+    /* ou um vídeo. Para um efeito mais simples, 'fixed' já ajuda. */
+    /* Se quiser animação de slide, você precisaria de @keyframes e background-position */
+    /* Exemplo de animação de movimento lento: */
+    /* animation: background-pan 60s linear infinite; */
+}
+
+/* @keyframes background-pan {
+    from { background-position: 0% 0%; }
+    to { background-position: 100% 100%; }
+} */
+
+
+/* Estilos para o card de login */
+.login-card {
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com leve transparência */
+    border: none; /* Remove a borda padrão */
+    border-radius: 10px; /* Bordas arredondadas */
+    padding: 2.5rem; /* Mais padding */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra mais suave e moderna */
+}
+
+.login-card h1 {
+    font-size: 2.2rem; /* Título maior */
+    color: #007bff; /* Cor do Bootstrap Primary */
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.login-card .form-label {
+    font-weight: bold;
+    color: #555;
+}
+
+.login-card .form-control {
+    border-radius: 5px;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ddd;
+}
+
+.login-card .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 0.75rem 0;
+}
+
+.login-card .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.login-card hr {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+.login-card p {
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.login-card .btn-link {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login-card .btn-link:hover {
+    text-decoration: underline;
+}
+
+
+/* Garante que o corpo da página e o HTML ocupem 100% da tela */
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0; /* Remove as margens padrão do navegador */
+    padding: 0; /* Remove os paddings padrão do navegador */
+    overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+}
+
+/* 1. VÍDEO: Fixa e joga para o fundo, agora cobrindo o body completo */
+.video-background {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw; /* 100% da largura do viewport */
+    height: 100vh; /* 100% da altura do viewport */
+    overflow: hidden; 
+    z-index: -100;
+}
+
+.video-background video {
+    width: 100%; /* O vídeo preenche o container .video-background */
+    height: 100%;
+    object-fit: cover; /* Garante que o vídeo cubra sem distorcer, cortando as bordas */
+}
+
+/* 2. CONTEÚDO (content-wrapper): Garante que está na frente */
+.content-wrapper {
+    position: relative; 
+    z-index: 100; 
+    min-height: 100vh; /* Ainda queremos que o formulário ocupe a altura total */
+    width: 100%; 
+}
+
+/* 3. Ajuste o Container Principal: O conteúdo que não for o formulário */
+/* REMOVER OU AJUSTAR ESTE PARA A PÁGINA DE LOGIN */
+.main-content {
+    padding-top: 56px; /* Altura da navbar padrão do Bootstrap */
+    z-index: 10;
+    position: relative; /* Garante que o z-index funcione */
+}
